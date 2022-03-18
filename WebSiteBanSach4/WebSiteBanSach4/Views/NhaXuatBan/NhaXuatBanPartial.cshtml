@@ -1,0 +1,18 @@
+﻿@using WebSiteBanSach4.Models;
+
+@model List<NhaXuatBan>
+<h1>Publisher</h1>
+
+@foreach (var item in Model)
+{ 
+    <div><a href="#">@item.TenNXB</a></div>
+}
+
+
+@*<h1>Publisher</h1>
+    <div><a href="#">Kim Dong</a></div>
+    <div><a href="#">Quoc gia</a></div>
+    <div><a href="#">Tu Phap</a></div>
+    <div><a href="#">Thanh Nien</a></div>
+    <span class="price">£49.99</span>
+    <a href="#" class="button button-buy">Get it now</a>*@

@@ -1,0 +1,22 @@
+﻿@using WebSiteBanSach4.Models;
+@model List<Sach>
+
+<h1 class="item-header">New Books</h1>
+
+@{
+    foreach (var item in Model)
+    {
+        <div class="activity-list-update">
+            <img src="@Url.Content("~/HinhAnhSP/"+item.AnhBia)" width="50" height="50" alt="Image">
+            <p><strong>@item.TenSach</strong><br /><a href="#">Views details</a></p>
+            <div class="clear"></div>
+        </div>
+    }
+}
+
+
+
+<a href="#" class="item-footer green">
+    Latest books
+</a>
+

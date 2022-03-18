@@ -8,8 +8,15 @@
     {
         <div class="activity-list-update">
             <img src="@Url.Content("~/HinhAnhSP/"+item.AnhBia)" width="50" height="50" alt="Image">
-            <p><strong>@item.TenSach</strong><br /><a href="#">Views details</a></p>
-            <div class="clear"></div>
+            @if (item.TenSach.Length > 30)
+            { 
+                <p><strong title="@item.TenSach">Title: @item.TenSach.Substring(0,30)...</strong><br /><a href="@Url.Action("XemChiTiet", new {@masach=item.MaSach})">Views details</a></p>
+            }
+            else
+            {
+                <p><strong title="@item.TenSach">Title: @item.TenSach</strong><br /><a href="@Url.Action("XemChiTiet", new {@masach=item.MaSach})">Views details</a></p>
+                <div class="clear"></div>
+            }
         </div>
     }
 }

@@ -11,17 +11,41 @@ namespace WebSiteBanSach4.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class KhachHang
     {
+        public KhachHang()
+        {
+            this.DonHangs = new HashSet<DonHang>();
+        }
+        [Display(Name="Customer ID")]
+        [Required(ErrorMessage = "{0} Can't be left blank")]
         public int MaKH { get; set; }
+        [Display(Name = "Full Name")]
+        [Required(ErrorMessage = "{0} Can't be left blank")]
         public string HoTen { get; set; }
+        [Display(Name = "Account")]
+        [Required(ErrorMessage = "{0} Can't be left blank")]
         public string TaiKhoan { get; set; }
+        [Display(Name = "Password")]
+        [Required(ErrorMessage = "{0} Can't be left blank")]
         public string MatKhau { get; set; }
+        [Display(Name = "Email")]
+        [Required(ErrorMessage = "{0} Can't be left blank")]
         public string Email { get; set; }
+        [Display(Name = "Address")]
+        [Required(ErrorMessage = "{0} Can't be left blank")]
         public string DiaChi { get; set; }
+        [Display(Name = "Number Fone")]
+        [Required(ErrorMessage = "{0} Can't be left blank")]
         public string DienThoai { get; set; }
+        [Display(Name = "Gender")]
+        [Required(ErrorMessage = "{0} Can't be left blank")]
         public string GioiTinh { get; set; }
+        [Display(Name = "Date of birth")]
+        [Required(ErrorMessage = "{0} Can't be left blank")]
         public Nullable<System.DateTime> NgaySinh { get; set; }
+        public virtual ICollection<DonHang> DonHangs { get; set; }
     }
 }

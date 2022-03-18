@@ -164,6 +164,7 @@
     <Compile Include="Controllers\ChuDeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NguoiDungController.cs" />
     <Compile Include="Controllers\NhaXuatBanController.cs" />
     <Compile Include="Controllers\SachController.cs" />
     <Compile Include="Global.asax.cs">
@@ -227,6 +228,7 @@
     <Content Include="Content\NguoiDungCssLayout\fonts.css" />
     <Content Include="Content\NguoiDungCssLayout\NguoiDungCssLayout.css" />
     <Content Include="Content\NguoiDungCssLayout\screen.css" />
+    <Content Include="Content\TrangChuCss.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -356,6 +358,13 @@
     <Content Include="Views\Layout\NguoiDungLayout.cshtml" />
     <Content Include="Views\NhaXuatBan\NhaXuatBanPartial.cshtml" />
     <Content Include="Views\Sach\SachMoiPartial.cshtml" />
+    <Content Include="Views\Sach\XemChiTiet.cshtml" />
+    <Content Include="Views\ChuDe\SachTheoChuDe.cshtml" />
+    <Content Include="Views\ChuDe\DanhMucChuDe.cshtml" />
+    <Content Include="Views\NhaXuatBan\SachTheoNXB.cshtml" />
+    <Content Include="Views\NhaXuatBan\DanhMucNXB.cshtml" />
+    <Content Include="Views\NguoiDung\DangKy.cshtml" />
+    <Content Include="Views\NguoiDung\DangNhap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

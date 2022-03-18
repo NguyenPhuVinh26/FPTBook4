@@ -11,7 +11,7 @@ namespace WebSiteBanSach4.Controllers
         QuanLyBanSachEntities db = new QuanLyBanSachEntities();
         public ActionResult Index()
         {
-            return View(db.Saches.ToList());
+            return View(db.Saches.Where(x=>x.Moi==1).ToList());
         }
     }
 }

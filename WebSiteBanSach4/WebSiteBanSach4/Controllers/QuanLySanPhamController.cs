@@ -28,17 +28,32 @@ namespace WebSiteBanSach4.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult ThemMoi(Sach sach,HttpPostedFileBase fileUpload)
         {
-            var fileName = Path.GetFileName(fileUpload.FileName);
-            var path = Path.Combine(Server.MapPath("~/HinhAnhSP"), fileName);
-            if (System.IO.File.Exists(path))
+            
+            ViewBag.MaChuDe = new SelectList(db.ChuDes.ToList().OrderBy(n => n.TenChuDe), "MaChuDe", "TenChuDe");
+            ViewBag.MaNXB = new SelectList(db.NhaXuatBans.ToList().OrderBy(n => n.TenNXB), "MaNXB", "TenNXB");
+            if (fileUpload == null)
             {
-                ViewBag.ThongBao = "Image already exists";
+                ViewBag.ThongBao = "Choose figure";
+                return View();
             }
-            else 
+            if (ModelState.IsValid)
             {
-                fileUpload.SaveAs(path);
+                var fileName = Path.GetFileName(fileUpload.FileName);
+                var path = Path.Combine(Server.MapPath("~/HinhAnhSP"), fileName);
+                if (System.IO.File.Exists(path))
+                {
+                    ViewBag.ThongBao = "Image already exists";
+                }
+                else
+                {
+                    fileUpload.SaveAs(path);
+                }
+                sach.AnhBia = fileUpload.FileName;
+                db.Saches.Add(sach);
+                db.SaveChanges();
             }
             return View();
         }

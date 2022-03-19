@@ -35,7 +35,6 @@ namespace WebSiteBanSach4.Models
         [Required(ErrorMessage = "{0} Can't be left blank")]
         [Display(Name = "Figure")]
         public string AnhBia { get; set; }
-        [Required(ErrorMessage = "{0} Can't be left blank")]
         [Display(Name = "Update day")]
         public Nullable<System.DateTime> NgayCapNhat { get; set; }
         [Required(ErrorMessage = "{0} Can't be left blank")]

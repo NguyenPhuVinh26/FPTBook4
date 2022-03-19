@@ -28,7 +28,12 @@
                 }
 
                 <div id="DonGia" style="color:orange"><font color="Green">Price:</font>@string.Format("{0:0,0}",item.GiaBan)$</div>
-
+                <div id="GioHang">
+                    @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSach = item.MaSach, @strURL = Request.Url.ToString() }))
+                    {
+                        <input type="submit" style="cursor:pointer" value="Buy &#xd07a;" id="btnGioHang" class="btn btn-primary">
+                    }
+                </div>
             </div>
         </div>
         if (i % 3 == 0)

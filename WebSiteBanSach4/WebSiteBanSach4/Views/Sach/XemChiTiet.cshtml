@@ -19,13 +19,16 @@
 
     <div id="ThongTin">
         <div id="TenSach">@Model.TenSach</div>
-        <div id="ChuDe">Category: @Model.MaChuDe</div>
-        <div id="NhaXuatBan">Publisher: @Model.MaNXB</div>
+        <div id="ChuDe">Category: @ViewBag.TenChuDe</div>
+        <div id="NhaXuatBan">Publisher: @ViewBag.NhaXuatBan</div>
         <div id="MoTa">Description:<br /> @Model.MoTa<br /></div>
         <div id="Gia"><span style="color: green;font-weight:normal;">Price:</span><br /><span id="Gia"> @string.Format("{0:0,0}",@Model.GiaBan)$ </span></div>
         <br />
-        <input type="button" value="Buy &#xd07a;" id="btnGioHang" class="btn btn-primary">
-     </div>
+        @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSach = Model.MaSach, @strURL = Request.Url.ToString() }))
+        { 
+        <input type="submit" style ="cursor:pointer"value="Buy &#xd07a;" id="btnGioHang" class="btn btn-primary">
+        }
+    </div>
     <div style="clear:both"></div>
     }
     <style>

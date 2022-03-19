@@ -1,0 +1,42 @@
+﻿@using WebSiteBanSach4.Models;
+@model List<GioHang>
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+<h2>Cart</h2>
+<table>
+    <tr>
+        <td> Book ID </td>
+    
+        <td> Book Name </td>
+   
+        <td> Figure </td>
+   
+        <td> Price </td>
+   
+        <td> Quantity </td>
+    
+        <td> Total </td>
+    </tr>
+
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.iMaSach</td>
+        
+            <td>@item.sTenSach</td>
+       
+            <td><img src="@Url.Content("~/HinhAnhSP/"+item.sAnhBia)" width="50" height="50"></td>
+       
+            <td>@String.Format("{0:0,0}", item.dDonGia)$ </td>
+       
+            <td>@item.iSoLuong</td>
+       
+            <td>@String.Format("{0:0,0}", item.ThanhTien)$</td>
+        </tr>
+    }
+</table>

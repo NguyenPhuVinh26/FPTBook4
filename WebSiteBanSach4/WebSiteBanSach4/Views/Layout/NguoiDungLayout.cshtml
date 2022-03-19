@@ -27,6 +27,7 @@
                     (+84) 1900-1500
                 </div>
                 <div class="DangKyDangNhap">
+                    @Html.Action("GioHangPartial","GioHang")
                     <i class="fa fa-sign-in" aria-hidden="true"></i>
                     @Html.ActionLink("Register", "DangKy", null, htmlAttributes: new { @class = "DangKy" })
                     <i class="fa fa-lock" aria-hidden="true"></i>

@@ -11,10 +11,16 @@ namespace WebSiteBanSach4.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class ChuDe
     {
+       
+        [Display(Name = "Category ID")]
         public int MaChuDe { get; set; }
+        [Required(ErrorMessage = "{0} Can't be left blank")]
+        [Display(Name = "Category Name")]
         public string TenChuDe { get; set; }
     }
 }

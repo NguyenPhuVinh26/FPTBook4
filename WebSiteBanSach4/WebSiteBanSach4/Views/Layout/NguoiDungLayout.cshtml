@@ -29,9 +29,9 @@
                 <div class="DangKyDangNhap">
                     @Html.Action("GioHangPartial","GioHang")
                     <i class="fa fa-sign-in" aria-hidden="true"></i>
-                    @Html.ActionLink("Register", "DangKy", null, htmlAttributes: new { @class = "DangKy" })
+                    <a href="~/NguoiDung/DangKy"@Html.ActionLink("Register", "DangKy", null, htmlAttributes: new { @class = "DangKy" })></a>
                     <i class="fa fa-lock" aria-hidden="true"></i>
-                    @Html.ActionLink("Login", "DangNhap", null, htmlAttributes: new { @class = "DangNhap" })
+                    <a href="~/NguoiDung/DangNhap"@Html.ActionLink("Login", "DangNhap", null, htmlAttributes: new { @class = "DangNhap" })></a>
                 </div>
             </div>
 
@@ -50,9 +50,7 @@
                     <li>
                         <a href="#">Home</a>
                     </li>
-                    <li>
-                        <a href="#">Introduct</a>
-                    </li>
+                    
                     <li>
                         <a href="#">Contact</a>
                     </li>
@@ -61,6 +59,9 @@
                     </li>
                     <li>
                         <a href="#">Books</a>
+                    </li>
+                    <li>
+                        <a href="~/QuanLySanPham">Admin</a>
                     </li>
                 </ul>
             </div>

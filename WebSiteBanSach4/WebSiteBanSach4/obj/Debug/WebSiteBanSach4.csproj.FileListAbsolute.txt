@@ -53,3 +53,7 @@ C:\Users\Admin\Desktop\Documents\Visual Studio 2013\Projects\WebSiteBanSach4\Web
 C:\Users\Admin\Desktop\Documents\Visual Studio 2013\Projects\WebSiteBanSach4\WebSiteBanSach4\obj\Debug\WebSiteBanSach4.csprojResolveAssemblyReference.cache
 C:\Users\Admin\Desktop\Documents\Visual Studio 2013\Projects\WebSiteBanSach4\WebSiteBanSach4\obj\Debug\WebSiteBanSach4.dll
 C:\Users\Admin\Desktop\Documents\Visual Studio 2013\Projects\WebSiteBanSach4\WebSiteBanSach4\obj\Debug\WebSiteBanSach4.pdb
+C:\Users\Admin\Desktop\Documents\Visual Studio 2013\Projects\WebSiteBanSach4\WebSiteBanSach4\bin\PagedList.dll
+C:\Users\Admin\Desktop\Documents\Visual Studio 2013\Projects\WebSiteBanSach4\WebSiteBanSach4\bin\PagedList.Mvc.dll
+C:\Users\Admin\Desktop\Documents\Visual Studio 2013\Projects\WebSiteBanSach4\WebSiteBanSach4\bin\PagedList.xml
+C:\Users\Admin\Desktop\Documents\Visual Studio 2013\Projects\WebSiteBanSach4\WebSiteBanSach4\bin\PagedList.Mvc.xml

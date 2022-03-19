@@ -22,10 +22,10 @@ namespace WebSiteBanSach4.Controllers
         }
         public ActionResult ThemGioHang(int iMaSach, string strURL)
         {
-            Sach sach = db.Saches.SingleOrDefault(n=>n.MaSach==iMaSach);
-            if(sach == null)
+            Sach sach = db.Saches.SingleOrDefault(n => n.MaSach == iMaSach);
+            if (sach == null)
             {
-                Response.StatusCode=404;
+                Response.StatusCode = 404;
                 return null;
             }
             List<GioHang> lstGioHang = LayGioHang();
@@ -75,7 +75,7 @@ namespace WebSiteBanSach4.Controllers
             }
             if (lstGioHang.Count == 0)
             {
-                return RedirectToAction("Index","Home");
+                return RedirectToAction("Index", "Home");
             }
             return RedirectToAction("GioHang");
         }
@@ -86,7 +86,7 @@ namespace WebSiteBanSach4.Controllers
                 return RedirectToAction("Index", "Home");
             }
             List<GioHang> lstGioHang = LayGioHang();
-            
+
             return View(lstGioHang);
         }
         private int TongSoLuong()
@@ -128,6 +128,38 @@ namespace WebSiteBanSach4.Controllers
             }
             List<GioHang> lstGioHang = LayGioHang();
             return View(lstGioHang);
+        }
+        // Oreder
+        [HttpPost]
+        public ActionResult DatHang()
+        {
+            if(Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
+            {
+                return RedirectToAction("DangNhap","NguoiDung");
+            }
+          
+            if (Session["GioHang"] == null)
+            {
+                RedirectToAction("Index", "Home");
+            }
+            DonHang ddh = new DonHang();
+            KhachHang kh = (KhachHang)Session["TaiKhoan"];
+            List<GioHang> gh = LayGioHang();
+            ddh.MaKH = kh.MaKH;
+            ddh.NgayDat = DateTime.Now;
+            db.DonHangs.Add(ddh);
+            db.SaveChanges();
+
+            foreach (var item in gh)
+            {
+                ChiTietDonHang ctDH = new ChiTietDonHang();
+                ctDH.MaDonHang = ddh.MaDonHang;
+                ctDH.MaSach = item.iMaSach;
+                ctDH.SoLuong = item.iSoLuong;
+                db.ChiTietDonHangs.Add(ctDH);
+            }
+            db.SaveChanges();
+            return RedirectToAction("Index","Home");
         }
     }
 }

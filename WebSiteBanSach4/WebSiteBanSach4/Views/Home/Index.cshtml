@@ -1,5 +1,7 @@
 ﻿@using WebSiteBanSach4.Models;
-@model List<Sach>
+@using PagedList.Mvc;
+
+@model PagedList.IPagedList<Sach>
 <link href="~/Content/TrangChuCss.css" rel="stylesheet" />
 @{
     Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
@@ -43,6 +45,13 @@
     }
 </div>
 <div style="clear:both"></div> 
-
-
+Page@(Model.PageCount<Model.PageNumber ? 0 :Model.PageNumber)/@Model.PageCount
+<div class="MenuPage">
+@Html.PagedListPager(Model, page => Url.Action("Index",new {page = page}))
+</div>
+<style>
+    .MenuPage li {
+    display:inline;
+    }
+</style>
 

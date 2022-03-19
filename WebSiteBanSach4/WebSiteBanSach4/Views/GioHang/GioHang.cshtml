@@ -45,6 +45,13 @@
             @Html.ActionLink("Update Cart", "SuaGioHang")
         </td>
     </tr>
+    <tr>
+        <td colspan="6" style="text-align:right;color:blue">
+            @using (Html.BeginForm("DatHang", "GioHang"))
+            { 
+                <input type="submit" value="Order"/>
+            }
+</tr>
 </table>
 <style>
     #divGioHang {

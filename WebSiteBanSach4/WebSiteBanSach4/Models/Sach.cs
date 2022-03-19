@@ -20,34 +20,27 @@ namespace WebSiteBanSach4.Models
             this.ChiTietDonHangs = new HashSet<ChiTietDonHang>();
             this.ThamGias = new HashSet<ThamGia>();
         }
-        [Required(ErrorMessage = "{0} Can't be left blank")]
-        [Display(Name = "Book ID")]
+       
         public int MaSach { get; set; }
-        [Required(ErrorMessage = "{0} Can't be left blank")]
-        [Display(Name = "Book Name")]
+      
         public string TenSach { get; set; }
-        [Required(ErrorMessage = "{0} Can't be left blank")]
-        [Display(Name = "Price")]
+        
         public Nullable<decimal> GiaBan { get; set; }
-        [Required(ErrorMessage = "{0} Can't be left blank")]
-        [Display(Name = "Description")]
+        
         public string MoTa { get; set; }
-        [Required(ErrorMessage = "{0} Can't be left blank")]
-        [Display(Name = "Figure")]
+        
         public string AnhBia { get; set; }
-        [Display(Name = "Update day")]
+        
         public Nullable<System.DateTime> NgayCapNhat { get; set; }
-        [Required(ErrorMessage = "{0} Can't be left blank")]
-        [Display(Name = "Quantity")]
+      
         public Nullable<int> SoLuongTon { get; set; }
-        [Required(ErrorMessage = "{0} Can't be left blank")]
-        [Display(Name = "Publisher ID")]
+        
         public Nullable<int> MaNXB { get; set; }
        
-        [Display(Name = "Category ID")]
+       
         public Nullable<int> MaChuDe { get; set; }
        
-        [Display(Name = "Status")]
+        
         public Nullable<int> Moi { get; set; }
         public virtual ICollection<ChiTietDonHang> ChiTietDonHangs { get; set; }
         public virtual ICollection<ThamGia> ThamGias { get; set; }

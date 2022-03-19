@@ -24,22 +24,24 @@ namespace WebSiteBanSach4.Models
             [Required(ErrorMessage = "{0} Can't be left blank")]
             [Display(Name = "Description")]
             public string MoTa { get; set; }
-            [Required(ErrorMessage = "{0} Can't be left blank")]
-            [Display(Name = "Figure")]
+            
+            [Display(Name = "Figure")]     
             public string AnhBia { get; set; }
-          
+            [DataType(DataType.Date)]
+            [DisplayFormat(DataFormatString="{0:dd/MM/yyyy}",ApplyFormatInEditMode=true)]
             [Display(Name = "Update day")]
+          
             public Nullable<System.DateTime> NgayCapNhat { get; set; }
             [Required(ErrorMessage = "{0} Can't be left blank")]
             [Display(Name = "Quantity")]
+            
             public Nullable<int> SoLuongTon { get; set; }
             [Required(ErrorMessage = "{0} Can't be left blank")]
-            [Display(Name = "Publisher ID")]
+            [Display(Name = "Publisher ID")]          
             public Nullable<int> MaNXB { get; set; }
-           
-            [Display(Name = "Category ID")]
+            [Display(Name = "Category ID")]        
             public Nullable<int> MaChuDe { get; set; }
-           
+
             [Display(Name = "Status")]
             public Nullable<int> Moi { get; set; }
         }

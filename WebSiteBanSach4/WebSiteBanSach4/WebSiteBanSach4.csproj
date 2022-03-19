@@ -639,6 +639,8 @@
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce.eot" />
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="Views\QuanLySanPham\ChinhSua.cshtml" />
+    <Content Include="Views\QuanLySanPham\HienThi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

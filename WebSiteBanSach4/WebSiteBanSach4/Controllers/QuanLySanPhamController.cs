@@ -30,8 +30,7 @@ namespace WebSiteBanSach4.Controllers
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult ThemMoi(Sach sach,HttpPostedFileBase fileUpload)
-        {
-            
+        {           
             ViewBag.MaChuDe = new SelectList(db.ChuDes.ToList().OrderBy(n => n.TenChuDe), "MaChuDe", "TenChuDe");
             ViewBag.MaNXB = new SelectList(db.NhaXuatBans.ToList().OrderBy(n => n.TenNXB), "MaNXB", "TenNXB");
             if (fileUpload == null)
@@ -57,5 +56,45 @@ namespace WebSiteBanSach4.Controllers
             }
             return View();
         }
+        [HttpGet]
+        public ActionResult ChinhSua(int MaSach)
+        {
+            Sach sach = db.Saches.SingleOrDefault(n => n.MaSach == MaSach);
+            if (sach == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            ViewBag.MaChuDe = new SelectList(db.ChuDes.ToList().OrderBy(n => n.TenChuDe), "MaChuDe", "TenChuDe",sach.MaChuDe);
+            ViewBag.MaNXB = new SelectList(db.NhaXuatBans.ToList().OrderBy(n => n.TenNXB), "MaNXB", "TenNXB",sach.MaNXB);
+            return View(sach);
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult ChinhSua(Sach sach, FormCollection f)
+        {
+            
+            if (ModelState.IsValid)
+            {
+                db.Entry(sach).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+            }
+            ViewBag.MaChuDe = new SelectList(db.ChuDes.ToList().OrderBy(n => n.TenChuDe), "MaChuDe", "TenChuDe", sach.MaChuDe);
+            ViewBag.MaNXB = new SelectList(db.NhaXuatBans.ToList().OrderBy(n => n.TenNXB), "MaNXB", "TenNXB", sach.MaNXB);
+            return RedirectToAction("Index");
+        }
+        public ActionResult HienThi(int MaSach)
+        {
+            Sach sach = db.Saches.SingleOrDefault(n => n.MaSach == MaSach);
+            {
+                if (sach == null)
+                {
+                    Response.StatusCode = 404;
+                    return null;
+                }
+                return View(sach);
+            }
+        }
+
     }
 }

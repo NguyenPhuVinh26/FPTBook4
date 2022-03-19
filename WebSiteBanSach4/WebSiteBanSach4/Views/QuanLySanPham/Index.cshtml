@@ -81,8 +81,8 @@
             @Html.DisplayFor(modelItem => item.Moi)
         </td>
         <td>
-            @Html.ActionLink("Edit", "ChinhSua", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "HienThi", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Edit", "ChinhSua", new {@MaSach=item.MaSach}) |
+            @Html.ActionLink("Details", "HienThi", new { @MaSach = item.MaSach }) |
             @Html.ActionLink("Delete", "Xoa", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>

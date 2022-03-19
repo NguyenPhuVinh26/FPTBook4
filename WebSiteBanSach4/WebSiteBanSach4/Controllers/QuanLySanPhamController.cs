@@ -96,5 +96,33 @@ namespace WebSiteBanSach4.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult Xoa(int MaSach)
+        {
+            Sach sach = db.Saches.SingleOrDefault(n => n.MaSach == MaSach);
+            {
+                if (sach == null)
+                {
+                    Response.StatusCode = 404;
+                    return null;
+                }
+                return View(sach);
+            }
+        }
+        [HttpPost, ActionName("Xoa")]
+        public ActionResult XacNhanXoa(int MaSach)
+        {
+            Sach sach = db.Saches.SingleOrDefault(n => n.MaSach == MaSach);
+            {
+                if (sach == null)
+                {
+                    Response.StatusCode = 404;
+                    return null;
+                }
+                db.Saches.Remove(sach);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+        }
     }
 }

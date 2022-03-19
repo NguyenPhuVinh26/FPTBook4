@@ -54,10 +54,7 @@
     width:30px;
     height:30px;
 }
-.icDienThoai {
-    float:left;
-    margin-top:1%;
-}
+
 #slider {
     float:right;
     width:900px;
@@ -80,4 +77,8 @@
 #divRight {
     width:70%;
     float:right;
+}
+.icDienThoai {
+    float: left;
+    margin-top: 1%;
 }

@@ -83,7 +83,7 @@
         <td>
             @Html.ActionLink("Edit", "ChinhSua", new {@MaSach=item.MaSach}) |
             @Html.ActionLink("Details", "HienThi", new { @MaSach = item.MaSach }) |
-            @Html.ActionLink("Delete", "Xoa", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Delete", "Xoa", new { @MaSach = item.MaSach })
         </td>
     </tr>
 }

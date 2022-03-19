@@ -1,19 +1,19 @@
-﻿@using WebSiteBanSach4.Models;
-@using PagedList.Mvc;
+﻿@using PagedList.Mvc;
+@using PagedList;
 
-@model PagedList.IPagedList<Sach>
+
+@model IPagedList<WebSiteBanSach4.Models.Sach>
 <link href="~/Content/TrangChuCss.css" rel="stylesheet" />
+
 @{
+    ViewBag.Title = "KetQuaTimKiem";
     Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
-    ViewBag.Title = "Index";
 }
-@section NoidungBenPhai{
-    <div>
-</div>
-}
-<h2 style="margin-left:2%;font-weight:normal;color:black">Newly published book</h2>
+
+<h2 style="margin-left:2%;font-weight:normal;color:black">Search Results</h2>
+<div>@ViewBag.ThongBao</div>
 <hr />
-<div id="divBody">
+<div id="divBody" style="background:white;">
     @{int i = 0;}
     @foreach (var item in Model)
     {
@@ -30,7 +30,7 @@
                     <div id="TenSach" title="@item.TenSach">@item.TenSach.Substring(0, 35)...</div>
                 }
 
-                <div id="DonGia" style="color:orange"><font color="Green">Price:</font>@string.Format("{0:0,0}",item.GiaBan)$</div>
+                <div id="DonGia" style="color:orange"><font color="Green">Price:</font>@string.Format("{0:0,0}", item.GiaBan)$</div>
                 <div id="GioHang">
                     @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMaSach = item.MaSach, @strURL = Request.Url.ToString() }))
                     {
@@ -41,20 +41,18 @@
         </div>
         if (i % 3 == 0)
         {
-            <div style="clear:both"></div> 
+            <div style="clear:both"></div>
         }
     }
 </div>
-<div style="clear:both"></div> 
-Page@(Model.PageCount<Model.PageNumber ? 0 :Model.PageNumber)/@Model.PageCount
+<div style="clear:both"></div>
+Page@(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
 <div class="MenuPage">
-@Html.PagedListPager(Model, page => Url.Action("Index",new {page = page}))
+    @Html.PagedListPager(Model, page => Url.Action("KetQuaTimKiem", new { page = page,@TuKhoa=ViewBag.TuKhoa }))
 </div>
 <style>
     .MenuPage li {
-    display:inline;
+        display: inline;
     }
-
-
 </style>
 

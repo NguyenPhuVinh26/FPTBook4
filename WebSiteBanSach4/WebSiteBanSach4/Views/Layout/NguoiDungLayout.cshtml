@@ -38,7 +38,7 @@
 
             <div class="flash success" id="divDanhMuc">
                 <div id="txtTimKiem">
-                    @using (Html.BeginForm())
+                    @using (Html.BeginForm("KetQuaTimKiem","TimKiem",FormMethod.Post))
                     { 
                         @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @class = "TexBoxTimKiem", @placeholder = "Enter search term..." })
                         <div id="divHinhAnhTimKiem">
@@ -98,7 +98,7 @@
                         @Html.Action("NhaXuatBanPartial","NhaXuatBan")
                        
                     </div>
-                    <img src="http://lorepixel.com/400/300" alt="Image">
+                    
                 </div>
             </div>
                 <div id="divRight">
@@ -119,5 +119,17 @@
         });
     });
     </script>
+
+    <style>
+        #slider {
+    float:right;
+    width:900px;
+    height:360px;
+    }
+    #slider img {
+    width:900px;
+    height:300px;
+    }
+    </style>
 </body>
 </html>

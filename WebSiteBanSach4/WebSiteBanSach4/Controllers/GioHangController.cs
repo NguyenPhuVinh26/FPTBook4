@@ -57,7 +57,7 @@ namespace WebSiteBanSach4.Controllers
             {
                 sanpham.iSoLuong = int.Parse(f["txtSoLuong"].ToString());
             }
-            return View("GioHang");
+            return RedirectToAction("GioHang");
         }
         public ActionResult XoaGioHang(int iMaSP)
         {
@@ -75,7 +75,7 @@ namespace WebSiteBanSach4.Controllers
             }
             if (lstGioHang.Count == 0)
             {
-                return RedirectToAction("TrangChu","Home");
+                return RedirectToAction("Index","Home");
             }
             return RedirectToAction("GioHang");
         }
@@ -83,7 +83,7 @@ namespace WebSiteBanSach4.Controllers
         {
             if (Session["GioHang"] == null)
             {
-                return RedirectToAction("TrangChu", "Home");
+                return RedirectToAction("Index", "Home");
             }
             List<GioHang> lstGioHang = LayGioHang();
             
@@ -118,6 +118,16 @@ namespace WebSiteBanSach4.Controllers
             ViewBag.TongSoLuong = TongSoLuong();
             ViewBag.TongTien = TongTien();
             return PartialView();
+        }
+
+        public ActionResult SuaGioHang()
+        {
+            if (Session["GioHang"] == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            List<GioHang> lstGioHang = LayGioHang();
+            return View(lstGioHang);
         }
     }
 }

@@ -657,10 +657,14 @@
     <Content Include="Views\QuanLyTacGia\ChinhSua.cshtml" />
     <Content Include="Views\QuanLyTacGia\HienThi.cshtml" />
     <Content Include="Views\QuanLyTacGia\Xoa.cshtml" />
+    <Content Include="Views\QuanLyNXB\Index.cshtml" />
+    <Content Include="Views\QuanLyNXB\ThemMoi.cshtml" />
+    <Content Include="Views\QuanLyNXB\ChinhSua.cshtml" />
+    <Content Include="Views\QuanLyNXB\HienThi.cshtml" />
+    <Content Include="Views\QuanLyNXB\Xoa.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\QuanLyNXB\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

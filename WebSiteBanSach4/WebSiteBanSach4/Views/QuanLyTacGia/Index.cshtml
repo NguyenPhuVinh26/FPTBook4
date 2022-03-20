@@ -1,0 +1,70 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.PagedList<WebSiteBanSach4.Models.TacGia>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/AdminLayout.cshtml";
+}
+
+<h1>Manager Author</h1>
+
+<p>
+    @Html.ActionLink("Add new", "ThemMoi")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().MaTacGia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TenTacGia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().DiaChi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TieuSu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().DienThoai)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaTacGia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenTacGia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiaChi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TieuSu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DienThoai)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "ChinhSua", new { @MaTacGia = item.MaTacGia }) |
+            @Html.ActionLink("Details", "HienThi", new { @MaTacGia = item.MaTacGia }) |
+            @Html.ActionLink("Delete", "Xoa", new { @MaTacGia = item.MaTacGia })
+        </td>
+    </tr>
+}
+
+</table>
+
+Page@(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="MenuPage">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+</div>
+<style>
+    .MenuPage li {
+        display: inline;
+    }
+</style>

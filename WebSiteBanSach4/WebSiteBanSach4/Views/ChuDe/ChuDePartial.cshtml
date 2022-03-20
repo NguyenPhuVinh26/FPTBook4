@@ -1,0 +1,21 @@
+﻿@using WebSiteBanSach4.Models;
+@model List<ChuDe>
+<hr />
+<h2 style="margin-left:2%; font-weight:normal;color:black">Category Themes</h2>
+<hr />
+@foreach (var item in Model)
+{
+    <a id="btnChuDe" style="width:250px; font-size:11pt;color: aliceblue;background-color:#808080;text-decoration:none" href="@Url.Action("SachTheoChuDe", new {@MaChuDe=item.MaChuDe})"class="button button-submit">@item.TenChuDe</a>
+}
+<br />
+<br />
+    <a style="float: left; width:250px;font-size:11pt;color:aliceblue; background-color:#808080;"href="@Url.Action("DanhMucChuDe")" class="button button-submit">Other topics...</a>
+
+@*<a href="#" class="button">History book</a>
+
+<a href="#" class="button button-submit">Teachnology book</a>
+<a href="#" class="button">Love book</a>
+
+<a href="#" class="button button-submit">Humanities book</a>
+<a href="#" class="button">Social book</a>
+<a href="#" class="button">Novel book</a>*@

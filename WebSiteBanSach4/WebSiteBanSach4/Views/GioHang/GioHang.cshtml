@@ -1,0 +1,65 @@
+﻿@using WebSiteBanSach4.Models;
+@model List<GioHang>
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+<h2>Cart</h2>
+<table id="divGioHang">
+    <tr>
+        <td> Book ID </td>
+    
+        <td> Book Name </td>
+   
+        <td> Figure </td>
+   
+        <td> Price </td>
+   
+        <td> Quantity </td>
+    
+        <td> Total </td>
+    </tr>
+
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.iMaSach</td>
+        
+            <td>@item.sTenSach</td>
+       
+            <td><a href="@Url.Action("XemChiTiet", "Sach", new {@MaSach = item.iMaSach})"><img src="@Url.Content("~/HinhAnhSP/"+item.sAnhBia)" width="50" height="50"></a></td>
+       
+            <td>@String.Format("{0:0,0}", item.dDonGia)$ </td>
+       
+            <td>@item.iSoLuong</td>
+       
+            <td>@String.Format("{0:0,0}", item.ThanhTien)$</td>
+           
+        </tr>
+    }
+    <tr>
+        <td colspan="6" style="text-align:right;color:blue">
+            @Html.ActionLink("Update Cart", "SuaGioHang")
+        </td>
+    </tr>
+    <tr>
+        <td colspan="6" style="text-align:right;color:blue">
+            @using (Html.BeginForm("DatHang", "GioHang"))
+            { 
+                <input type="submit" value="Order"/>
+            }
+</tr>
+</table>
+<style>
+    #divGioHang {
+        border:3px solid#000000;
+        margin-left:10%;
+    }
+        #divGioHang td {
+        padding:10px;
+        border:3px solid #000000;
+        }
+    </style>

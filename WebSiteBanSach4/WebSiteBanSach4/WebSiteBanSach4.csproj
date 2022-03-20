@@ -176,6 +176,7 @@
     <Compile Include="Controllers\NguoiDungController.cs" />
     <Compile Include="Controllers\NhaXuatBanController.cs" />
     <Compile Include="Controllers\QuanLyLoaiController.cs" />
+    <Compile Include="Controllers\QuanLyNXBController.cs" />
     <Compile Include="Controllers\QuanLySanPhamController.cs" />
     <Compile Include="Controllers\QuanLyTacGiaController.cs" />
     <Compile Include="Controllers\SachController.cs" />
@@ -652,9 +653,14 @@
     <Content Include="Views\QuanLyLoai\HienThi.cshtml" />
     <Content Include="Views\QuanLyLoai\Xoa.cshtml" />
     <Content Include="Views\QuanLyTacGia\Index.cshtml" />
+    <Content Include="Views\QuanLyTacGia\ThemMoi.cshtml" />
+    <Content Include="Views\QuanLyTacGia\ChinhSua.cshtml" />
+    <Content Include="Views\QuanLyTacGia\HienThi.cshtml" />
+    <Content Include="Views\QuanLyTacGia\Xoa.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\QuanLyNXB\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

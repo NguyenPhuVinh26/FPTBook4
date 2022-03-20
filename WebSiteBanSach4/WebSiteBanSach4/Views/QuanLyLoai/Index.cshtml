@@ -8,7 +8,7 @@
     Layout = "~/Views/Layout/AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
+<h1>Manager Category</h1>
 
 <p>
     @Html.ActionLink("Add new", "ThemMoi")
@@ -33,9 +33,9 @@
             @Html.DisplayFor(modelItem => item.TenChuDe)
         </td>
         <td>
-            @Html.ActionLink("Edit", "ChinhSua", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "HienThi", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Xoa", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "ChinhSua", new {@MaChuDe = item.MaChuDe}) |
+            @Html.ActionLink("Details", "HienThi", new { @MaChuDe = item.MaChuDe }) |
+            @Html.ActionLink("Delete", "Xoa", new { @MaChuDe = item.MaChuDe })
         </td>
     </tr>
 }

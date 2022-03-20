@@ -11,13 +11,26 @@ namespace WebSiteBanSach4.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class TacGia
     {
+        [Required(ErrorMessage = "{0} Can't be left blank")]
+        [Display(Name = "Author ID")]
         public int MaTacGia { get; set; }
+        [Required(ErrorMessage = "{0} Can't be left blank")]
+        [Display(Name = "Author Name")]
         public string TenTacGia { get; set; }
+        [Required(ErrorMessage = "{0} Can't be left blank")]
+        [Display(Name = "Address")]
         public string DiaChi { get; set; }
+
+        [Required(ErrorMessage = "{0} Can't be left blank")]
+        [Display(Name = "Story")]
         public string TieuSu { get; set; }
+        [Required(ErrorMessage = "{0} Can't be left blank")]
+        [Display(Name = "Phone")]
         public string DienThoai { get; set; }
     }
 }

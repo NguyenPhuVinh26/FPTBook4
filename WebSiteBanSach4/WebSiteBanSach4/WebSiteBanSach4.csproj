@@ -177,6 +177,7 @@
     <Compile Include="Controllers\NhaXuatBanController.cs" />
     <Compile Include="Controllers\QuanLyLoaiController.cs" />
     <Compile Include="Controllers\QuanLySanPhamController.cs" />
+    <Compile Include="Controllers\QuanLyTacGiaController.cs" />
     <Compile Include="Controllers\SachController.cs" />
     <Compile Include="Controllers\TimKiemController.cs" />
     <Compile Include="Global.asax.cs">
@@ -647,6 +648,10 @@
     <Content Include="Views\TimKiem\KetQuaTimKiem.cshtml" />
     <Content Include="Views\QuanLyLoai\Index.cshtml" />
     <Content Include="Views\QuanLyLoai\ThemMoi.cshtml" />
+    <Content Include="Views\QuanLyLoai\ChinhSua.cshtml" />
+    <Content Include="Views\QuanLyLoai\HienThi.cshtml" />
+    <Content Include="Views\QuanLyLoai\Xoa.cshtml" />
+    <Content Include="Views\QuanLyTacGia\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

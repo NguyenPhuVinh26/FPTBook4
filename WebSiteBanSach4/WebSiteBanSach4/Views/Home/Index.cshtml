@@ -19,7 +19,7 @@
     {
         i++;
         <div id="SanPham">
-            <a href="@Url.Action("XemChiTiet", "Sach", new {@MaSach=item.MaSach})"> <div id="AnhBia"><img src="@Url.Content("~/HinhanhSP/"+item.AnhBia)" width="100" height="150"></div></a>
+            <a href="@Url.Action("XemChiTiet", "Sach", new {@MaSach=item.MaSach})"> <div id="AnhBia"><img src="@Url.Content("~/HinhanhSP/"+item.AnhBia)" width="150" height="250"></div></a>
             <div id="ThongTin">
                 @if (item.TenSach.Length < 35)
                 {
@@ -39,7 +39,7 @@
                 </div>
             </div>
         </div>
-        if (i % 3 == 0)
+        if (i % 5 == 0)
         {
             <div style="clear:both"></div> 
         }

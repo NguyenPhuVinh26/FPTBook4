@@ -46,6 +46,7 @@
     }
 </div>
 <div style="clear:both"></div> 
+@*Create page link link*@
 Page@(Model.PageCount<Model.PageNumber ? 0 :Model.PageNumber)/@Model.PageCount
 <div class="MenuPage">
 @Html.PagedListPager(Model, page => Url.Action("Index",new {page = page}))

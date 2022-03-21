@@ -22,6 +22,10 @@ namespace WebSiteBanSach4.Controllers
         [HttpGet]
         public ActionResult ThemMoi()
         {
+            if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
+            {
+                return RedirectToAction("DangNhap", "NguoiDung");
+            }
             return View();
         }
 
@@ -40,6 +44,10 @@ namespace WebSiteBanSach4.Controllers
         [HttpGet]
         public ActionResult ChinhSua(int MaNXB)
         {
+            if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
+            {
+                return RedirectToAction("DangNhap", "NguoiDung");
+            }
             NhaXuatBan nhaxuatban = db.NhaXuatBans.SingleOrDefault(n => n.MaNXB == MaNXB);
             if (nhaxuatban == null)
             {
@@ -62,6 +70,10 @@ namespace WebSiteBanSach4.Controllers
 
         public ActionResult HienThi(int MaNXB)
         {
+            if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
+            {
+                return RedirectToAction("DangNhap", "NguoiDung");
+            }
             NhaXuatBan nhaxuatban = db.NhaXuatBans.SingleOrDefault(n => n.MaNXB == MaNXB);
             if (nhaxuatban == null)
             {
@@ -74,6 +86,10 @@ namespace WebSiteBanSach4.Controllers
         [HttpGet]
         public ActionResult Xoa(int MaNXB)
         {
+            if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
+            {
+                return RedirectToAction("DangNhap", "NguoiDung");
+            }
             NhaXuatBan nhaxuatban = db.NhaXuatBans.SingleOrDefault(n => n.MaNXB == MaNXB);
             if (nhaxuatban == null)
             {

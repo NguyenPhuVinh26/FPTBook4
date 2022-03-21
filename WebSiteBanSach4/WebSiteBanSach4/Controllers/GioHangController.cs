@@ -42,26 +42,34 @@ namespace WebSiteBanSach4.Controllers
                 return Redirect(strURL);
             }
         }
-
+        /*Update Cart*/
         public ActionResult CapNhapGioHang(int iMaSP, FormCollection f)
         {
+            //Check ID product
             Sach sach = db.Saches.SingleOrDefault(n => n.MaSach == iMaSP);
+            //If you get the wrong product code, will return an error message.
             if (sach == null)
             {
                 Response.StatusCode = 404;
                 return null;
             }
+            //Take out cart from session
             List<GioHang> lstGioHang = LayGioHang();
+            //Check product exists in Session ["GioHang"]
             GioHang sanpham = lstGioHang.SingleOrDefault(n => n.iMaSach == iMaSP);
+            //If the code exists, will fix the quantity.
             if (sanpham != null)
             {
                 sanpham.iSoLuong = int.Parse(f["txtSoLuong"].ToString());
             }
             return RedirectToAction("GioHang");
         }
+        /*Delete Cart*/
         public ActionResult XoaGioHang(int iMaSP)
         {
+            //Check ID product
             Sach sach = db.Saches.SingleOrDefault(n => n.MaSach == iMaSP);
+            //If you get the wrong product code, will return an error message.
             if (sach == null)
             {
                 Response.StatusCode = 404;
@@ -79,6 +87,7 @@ namespace WebSiteBanSach4.Controllers
             }
             return RedirectToAction("GioHang");
         }
+        /*Build a shopping cart page*/
         public ActionResult GioHang()
         {
             if (Session["GioHang"] == null)
@@ -89,6 +98,9 @@ namespace WebSiteBanSach4.Controllers
 
             return View(lstGioHang);
         }
+
+        /*Calculate the total amount and the total money*/
+        /*Calculate the total amount*/
         private int TongSoLuong()
         {
             int iTongSoLuong = 0;
@@ -99,6 +111,7 @@ namespace WebSiteBanSach4.Controllers
             }
             return iTongSoLuong;
         }
+        /*Calculate the total money*/
         private double TongTien()
         {
             double dTongTien = 0;
@@ -109,6 +122,8 @@ namespace WebSiteBanSach4.Controllers
             }
             return dTongTien;
         }
+        /*Create Partial for the shopping cart.*/
+
         public ActionResult GioHangPartial()
         {
             if (TongSoLuong() == 0)
@@ -119,7 +134,7 @@ namespace WebSiteBanSach4.Controllers
             ViewBag.TongTien = TongTien();
             return PartialView();
         }
-
+        /*Build 1 view for user to edit cart*/
         public ActionResult SuaGioHang()
         {
             if (Session["GioHang"] == null)

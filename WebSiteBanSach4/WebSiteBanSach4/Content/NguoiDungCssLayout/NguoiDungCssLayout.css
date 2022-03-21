@@ -1,8 +1,10 @@
-﻿divToanTrang {
+﻿/*Use width for full page div*/
+divToanTrang {
     position:relative;
     font-family:'Segoe UI';
     font-weight:bold;
 }
+/*Design registration and login link*/
 .DangKyDangNhap {
     float:right;
     margin-top:-1%;
@@ -11,13 +13,16 @@
     text-decoration:none;
     color:green;
 }
+/*CSS for div DanhMuc*/
 #divDanhMuc {
     height:30px;
 }
+/*CSS for menu header*/
 .navMenu {
     float:right;
     margin-right:10%;
 }
+/*CSS for menu changes color slowly*/
 .navMenu li{
     display:inline;
     border-right:solid 1px rgba(0,0,0,.1);
@@ -26,7 +31,7 @@
     padding-bottom:22px;
     -webkit-transition:all .5s ease-out;
 }
-
+/*Slow color change*/
 .navMenu li:hover{
     background-color:rgba(0,0,0,.5);
     -webkit-transition:all .5s ease-out;
@@ -34,6 +39,7 @@
 .navMenu a:hover {
     text-decoration:none;
 }
+/*Css div timkiem*/
 
 #txtTimKiem {
     float:left;
@@ -42,6 +48,7 @@
 #txtTimKiem input {
     height:0px;
 }
+/*Css image button for search image*/
 #divHinhAnhTimKiem button {
     margin-right:-50px;
     padding:0 1px 0 1px;

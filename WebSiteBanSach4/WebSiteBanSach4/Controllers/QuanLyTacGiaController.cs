@@ -23,6 +23,10 @@ namespace WebSiteBanSach4.Controllers
         [HttpGet]
         public ActionResult ThemMoi()
         {
+            if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
+            {
+                return RedirectToAction("DangNhap", "NguoiDung");
+            }
             return View();
         }
         [HttpPost]
@@ -40,6 +44,10 @@ namespace WebSiteBanSach4.Controllers
         [HttpGet]
         public ActionResult ChinhSua(int MaTacGia)
         {
+            if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
+            {
+                return RedirectToAction("DangNhap", "NguoiDung");
+            }
             TacGia tacgia = db.TacGias.SingleOrDefault(n => n.MaTacGia == MaTacGia);
             if (tacgia == null)
             {
@@ -63,6 +71,10 @@ namespace WebSiteBanSach4.Controllers
 
         public ActionResult HienThi(int MaTacGia)
         {
+            if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
+            {
+                return RedirectToAction("DangNhap", "NguoiDung");
+            }
             TacGia tacgia = db.TacGias.SingleOrDefault(n => n.MaTacGia == MaTacGia);
             if (tacgia == null)
             {
@@ -75,6 +87,10 @@ namespace WebSiteBanSach4.Controllers
         [HttpGet]
         public ActionResult Xoa(int MaTacGia)
         {
+            if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
+            {
+                return RedirectToAction("DangNhap", "NguoiDung");
+            }
             TacGia tacgia = db.TacGias.SingleOrDefault(n => n.MaTacGia == MaTacGia);
             if (tacgia == null)
             {

@@ -21,6 +21,10 @@ namespace WebSiteBanSach4.Controllers
         [HttpGet]
         public ActionResult ThemMoi()
         {
+            if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
+            {
+                return RedirectToAction("DangNhap", "NguoiDung");
+            }
             return View();
         }
         [HttpPost]
@@ -38,6 +42,10 @@ namespace WebSiteBanSach4.Controllers
         [HttpGet]
         public ActionResult ChinhSua(int MaChuDe)
         {
+            if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
+            {
+                return RedirectToAction("DangNhap", "NguoiDung");
+            }
             ChuDe chude = db.ChuDes.SingleOrDefault(n => n.MaChuDe == MaChuDe);
             if (chude == null)
             {
@@ -61,6 +69,10 @@ namespace WebSiteBanSach4.Controllers
 
         public ActionResult HienThi(int MaChuDe)
         {
+            if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
+            {
+                return RedirectToAction("DangNhap", "NguoiDung");
+            }
             ChuDe chude = db.ChuDes.SingleOrDefault(n => n.MaChuDe == MaChuDe);
             if (chude == null)
             {
@@ -72,6 +84,10 @@ namespace WebSiteBanSach4.Controllers
         [HttpGet]
         public ActionResult Xoa(int MaChuDe)
         {
+            if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
+            {
+                return RedirectToAction("DangNhap", "NguoiDung");
+            }
             ChuDe chude = db.ChuDes.SingleOrDefault(n => n.MaChuDe == MaChuDe);
             if (chude == null)
             {

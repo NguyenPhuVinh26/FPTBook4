@@ -33,7 +33,7 @@
             <td><img src="@Url.Content("~/HinhAnhSP/"+item.sAnhBia)" width="50" height="50"></td>
 
             <td>@String.Format("{0:0,0}", item.dDonGia)$ </td>
-
+            @*edit cart call to action CapNhapGioHang*@
             @using (Html.BeginForm("CapNhapGioHang", "GioHang", new { @iMaSP = item.iMaSach }))
             {
                 <td>@Html.TextBox("txtSoLuong",item.iSoLuong)</td>
@@ -41,6 +41,7 @@
                 <td>
                     <input type="submit" value="Update" />
                     <br />
+                    @*edit cart call to action XoaGioHang*@
                     @Html.ActionLink("Delete", "XoaGioHang", new {@iMaSP=item.iMaSach})
                 </td>
             }    

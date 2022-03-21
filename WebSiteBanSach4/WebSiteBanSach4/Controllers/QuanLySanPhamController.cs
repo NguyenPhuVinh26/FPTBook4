@@ -10,19 +10,26 @@ using System.IO;
 
 namespace WebSiteBanSach4.Controllers
 {
+
     public class QuanLySanPhamController : Controller
     {
         QuanLyBanSachEntities db = new QuanLyBanSachEntities();
         // GET: QuanLySanPham
+
         public ActionResult Index(int? page)
         {
             int pageNumber = (page ?? 1);
             int pageSize = 10;
             return View(db.Saches.ToList().OrderBy(n=>n.MaSach).ToPagedList(pageNumber, pageSize));
         }
+
         [HttpGet]
         public ActionResult ThemMoi()
         {
+            if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
+            {
+                return RedirectToAction("DangNhap", "NguoiDung");
+            }
             ViewBag.MaChuDe = new SelectList(db.ChuDes.ToList().OrderBy(n => n.TenChuDe), "MaChuDe", "TenChuDe");
             ViewBag.MaNXB = new SelectList(db.NhaXuatBans.ToList().OrderBy(n => n.TenNXB), "MaNXB", "TenNXB");
             return View();
@@ -59,6 +66,10 @@ namespace WebSiteBanSach4.Controllers
         [HttpGet]
         public ActionResult ChinhSua(int MaSach)
         {
+            if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
+            {
+                return RedirectToAction("DangNhap", "NguoiDung");
+            }
             Sach sach = db.Saches.SingleOrDefault(n => n.MaSach == MaSach);
             if (sach == null)
             {
@@ -85,6 +96,10 @@ namespace WebSiteBanSach4.Controllers
         }
         public ActionResult HienThi(int MaSach)
         {
+            if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
+            {
+                return RedirectToAction("DangNhap", "NguoiDung");
+            }
             Sach sach = db.Saches.SingleOrDefault(n => n.MaSach == MaSach);
             {
                 if (sach == null)
@@ -99,6 +114,11 @@ namespace WebSiteBanSach4.Controllers
         [HttpGet]
         public ActionResult Xoa(int MaSach)
         {
+            if (Session["TaiKhoan"] == null || Session["TaiKhoan"].ToString() == "")
+            {
+                return RedirectToAction("DangNhap", "NguoiDung");
+            }
+
             Sach sach = db.Saches.SingleOrDefault(n => n.MaSach == MaSach);
             {
                 if (sach == null)

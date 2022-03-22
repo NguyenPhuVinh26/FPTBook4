@@ -1,0 +1,58 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+
+
+@model IPagedList<WebSiteBanSach4.Models.Sach>
+<link href="~/Content/TrangChuCss.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "SearchResult";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+<h2 style="margin-left:2%;font-weight:normal;color:black">Search Results</h2>
+<div>@ViewBag.ThongBao</div>
+<hr />
+<div id="divBody" style="background:white;">
+    @{int i = 0;}
+    @foreach (var item in Model)
+    {
+        i++;
+        <div id="SanPham">
+            <a href="@Url.Action("ViewDetails", "Book", new {@MaSach=item.MaSach})"> <div id="AnhBia"><img src="@Url.Content("~/ImageProduct/"+item.AnhBia)" width="100" height="150"></div></a>
+            <div id="ThongTin">
+                @if (item.TenSach.Length < 35)
+                {
+                    <div id="TenSach" title="@item.TenSach">@item.TenSach</div>
+                }
+                else
+                {
+                    <div id="TenSach" title="@item.TenSach">@item.TenSach.Substring(0, 35)...</div>
+                }
+
+                <div id="DonGia" style="color:orange"><font color="Green">Price:</font>@string.Format("{0:0,0}", item.GiaBan)$</div>
+                <div id="GioHang">
+                    @using (Html.BeginForm("ThemGioHang", "Cart", new { @iMaSach = item.MaSach, @strURL = Request.Url.ToString() }))
+                    {
+                        <input type="submit" style="cursor:pointer" value="Buy &#xd07a;" id="btnGioHang" class="btn btn-primary">
+                    }
+                </div>
+            </div>
+        </div>
+        if (i % 3 == 0)
+        {
+            <div style="clear:both"></div>
+        }
+    }
+</div>
+<div style="clear:both"></div>
+Page@(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+<div class="MenuPage">
+    @Html.PagedListPager(Model, page => Url.Action("SearchResult", new { page = page, @TuKhoa = ViewBag.TuKhoa }))
+</div>
+<style>
+    .MenuPage li {
+        display: inline;
+    }
+</style>
+

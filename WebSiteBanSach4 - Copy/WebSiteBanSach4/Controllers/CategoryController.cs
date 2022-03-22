@@ -8,7 +8,7 @@ namespace WebSiteBanSach4.Controllers
 {
     public class CategoryController : Controller
     {
-        // GET: ChuDe
+        // GET: Category
         QuanLyBanSachEntities db = new QuanLyBanSachEntities();
         public ActionResult CategoryPartial()
         {
